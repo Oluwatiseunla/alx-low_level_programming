@@ -15,4 +15,5 @@ int main(void)
 		putchar((a % 10) + '0');
 	}
 	putchar('\n');
-	return (0);}
+	return (0);
+}
