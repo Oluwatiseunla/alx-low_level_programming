@@ -4,7 +4,8 @@
  * prime - checks if a number is prime or not
  * @a: int
  * @b: int
- * Return : 0 or 1
+ *
+ * Return: integer
  */
 
 int prime(int a, int b)
