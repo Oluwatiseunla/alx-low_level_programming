@@ -5,7 +5,7 @@
 
 /**
  * print_list - prints all the element of a list
- * @h: pointer to a  lisdt
+ * @h: pointer to a  list
  * Return: size
  *
  */
