@@ -1,54 +1,43 @@
-#include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 
 /**
- * _strlen - finds the length of a string
- * @str: string to find the length of
+ * add_node_end - Adds a new node to the end of the list
+ * @head: The head of the list
+ * @str: The string to be added
  *
- * Return: length of string
- */
-unsigned int _strlen(char *str)
-{
-	unsigned int i;
-
-	for (i = 0; str[i]; i++)
-		;
-	return (i);
-}
-
-/**
- * add_node_end - adds a new node to the end of linked list
- * @head: double pointer to a linked list
- * @str: string to add to the new node
- *
- * Return: pointer to the new node
+ * Return: Returns the address of the new node or null
+ * if it failed.
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new, *tmp;
+	list_t *new;
+	size_t len;
+	int i;
+	list_t *node;
 
-	if (str == NULL)
-		return (NULL);
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);
+
+	for (i = 0, len = 0; str[i] != '\0'; i++)
+		len++;
+
 	new->str = strdup(str);
-	if (new->str == NULL)
-	{
-		free(new);
-		return (NULL);
-	}
-	new->len = _strlen(new->str);
-	new->next = NULL;
+	new->len = len;
+
+
 	if (*head == NULL)
 	{
 		*head = new;
 		return (new);
 	}
-	tmp = *head;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
+	node = *head;
+
+	for (i = 0; node->next != NULL; i++, node = node->next)
+	{
+		continue;
+	}
+
+	node->next = new;
 	return (new);
 }
